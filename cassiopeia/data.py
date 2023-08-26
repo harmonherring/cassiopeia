@@ -12,8 +12,13 @@ class Region(Enum):
     latin_america_south = "LAS"
     north_america = "NA"
     oceania = "OCE"
-    turkey = "TR"
+    philippines = "PH"
     russia = "RU"
+    singapore = "SG"
+    thailand = "TH"
+    turkey = "TR"
+    taiwan = "TW"
+    vietnam = "VN"
 
     @property
     def platform(self) -> "Platform":
@@ -43,7 +48,12 @@ class Region(Enum):
             "RU": "GMT+3",
             "KR": "GMT+6",
             "JP": "GMT+7",
+            "TH": "GMT+7",
+            "VN": "GMT+7",
             "OCE": "GMT+8",
+            "PH": "GMT+8",
+            "SG": "GMT+8",
+            "TW": "GMT+8",
         }
         return tzs[self.value]
 
@@ -67,10 +77,20 @@ class Region(Enum):
             return Continent.americas
         if self is Region.oceania:
             return Continent.sea
-        if self is Region.turkey:
-            return Continent.europe
+        if self is Region.philippines:
+            return Continent.sea
         if self is Region.russia:
             return Continent.europe
+        if self is Region.singapore:
+            return Continent.sea
+        if self is Region.thailand:
+            return Continent.sea
+        if self is Region.turkey:
+            return Continent.europe
+        if self is Region.taiwan:
+            return Continent.sea
+        if self is Region.vietnam:
+            return Continent.sea
 
 
 class Platform(Enum):
@@ -83,8 +103,13 @@ class Platform(Enum):
     latin_america_south = "LA2"
     north_america = "NA1"
     oceania = "OC1"
-    turkey = "TR1"
+    philippines = "PH2"
     russia = "RU"
+    singapore = "SG2"
+    thailand = "TH2"
+    turkey = "TR1"
+    taiwan = "TW2"
+    vietnam = "VN2"
 
     @property
     def region(self) -> "Region":
@@ -125,10 +150,20 @@ DEFAULT_LOCALE = {
     Platform.north_america: "en_US",
     Region.oceania: "en_AU",
     Platform.oceania: "en_AU",
-    Region.turkey: "tr_TR",
-    Platform.turkey: "tr_TR",
+    Region.philippines: "en_PH",
+    Platform.philippines: "en_PH",
     Region.russia: "ru_RU",
     Platform.russia: "ru_RU",
+    Region.singapore: "en_SG",
+    Platform.singapore: "en_SG",
+    Region.thailand: "th_TH",
+    Platform.thailand: "th_TH",
+    Region.turkey: "tr_TR",
+    Platform.turkey: "tr_TR",
+    Region.taiwan: "zh_TW",
+    Platform.taiwan: "zh_TW",
+    Region.vietnam: "vi_VN",
+    Platform.vietnam: "vi_VN",
 }
 
 
